@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>儒宴轩</title>
+</head>
+<body>
+<button id="test1" type="button">test1</button>
+<button id="test2" type="button">test2</button>
+<script th:src="@{public/js/jquery.js}"></script>
+<script>
+    $(function () {
+        var host = "https://222.66.154.106";
+        $("#test1").click(function () {
+            post(host + "/gms/rest/authentication/userAuthType/");
+        });
+        $("#test1").click(function () {
+            post(host + "/gms/rest/authentication/userAuthType/");
+        });
+
+
+        function post(url) {
+            $.ajax({
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                type: "POST",
+                // xhrFields: {
+                //     withCredentials: true
+                // },
+                url: url,
+                data: {user: "admin", password: "admin"},
+                dataType: "text",
+                success: function (data) {
+                    console.info(data)
+                }
+            });
+        }
+    })
+</script>
+</body>
+</html>

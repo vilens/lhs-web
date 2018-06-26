@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>儒宴轩</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+<body>
+<div class="background"></div>
+<div class="background-mask"></div>
+<div class="wapper">
+    <div class="header">
+        <div class="site-name">鹿回山</div>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索绘画">
+            <div class="icon search-btn"></div>
+        </div>
+    </div>
+    <div class="product-list flex flex-pack-justify">
+        <!--/*@thymesVar id="productList" type=""*/-->
+        <div class="product-panel" th:each="prod :${productList}">
+            <div class="panel-wapper">
+                <div class="pic">
+                    <img th:src="${prod.imgUrl}">
+                </div>
+                <div class="intro">
+                    <div class="title" th:text="${prod.title}">莫奈家人肖像</div>
+                    <div class="author" th:text="${prod.author}">莫奈</div>
+
+                </div>
+                <div class="panel-mask"></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!--<i class="icon icon-prev"></i>-->
+        <i class="icon icon-next"></i>
+    </div>
+</div>
+<script th:src="@{public/js/jquery.js}"></script>
+<script th:src="@{public/js/jquery.dotdotdot.min.js}"></script>
+<script th:src="@{js/index.js}"></script>
+</body>
+</html>
